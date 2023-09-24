@@ -22,7 +22,6 @@ class Card {
                 return 1;
             else
                 return int(Card().rank);
-
         }
 };
 
