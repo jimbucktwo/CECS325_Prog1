@@ -1,4 +1,4 @@
-// example of the header file, change later
+
 class Card
 {
     public:
