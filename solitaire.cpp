@@ -8,17 +8,7 @@
 
 #include <stdlib.h>
 #include <iostream>
-#include "card.h"
-#include "deck.h"
 using namespace std;
-
-//isFibo function to test the fibo numbers
-bool isFibo(int num) {
-    if (num == 0 || num == 1 || num == 2 || num == 3 || num == 5 || num == 8 
-    || num == 13 || num == 21 || num == 34 || num == 55 || num == 89
-    || num == 144 || num == 233) return true;
-    return false;
-}
 
 // main function
 int main() {
