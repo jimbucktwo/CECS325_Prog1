@@ -150,7 +150,7 @@ Deck::Deck() {
 
 // new deck method that creates a newly made ordered deck
 void Deck::newDeck() {
-    vector<Card> deckReset;
+    maindeck.clear();
     for (int i = 1; i <= 13; i++) {
         Card tempCard = Card();
         if (i == 10) {
@@ -181,7 +181,7 @@ void Deck::newDeck() {
             tempCard.rank = '0' + i;
             tempCard.suit = 'S'; 
         }
-        deckReset.push_back(tempCard);
+        maindeck.push_back(tempCard);
     }
 
     for (int i = 1; i <= 13; i++) {
@@ -214,7 +214,7 @@ void Deck::newDeck() {
             tempCard.rank = '0' + i;
             tempCard.suit = 'H'; 
         }
-        deckReset.push_back(tempCard);
+        maindeck.push_back(tempCard);
     }
 
     for (int i = 1; i <= 13; i++) {
@@ -247,7 +247,7 @@ void Deck::newDeck() {
             tempCard.rank = '0' + i;
             tempCard.suit = 'D'; 
         }
-        deckReset.push_back(tempCard);
+        maindeck.push_back(tempCard);
     }
 
     for (int i = 1; i <= 13; i++) {
@@ -280,9 +280,8 @@ void Deck::newDeck() {
             tempCard.rank = '0' + i;
             tempCard.suit = 'C'; 
         }
-        deckReset.push_back(tempCard);
+        maindeck.push_back(tempCard);
     }
-    maindeck = deckReset;
 }
 
 // deals one card and removes it from the deck
@@ -297,8 +296,8 @@ Card Deck::deal() {
 
 //shuffles the deck
 void Deck::shuffle() {
+    srand (time(0));
     for (int i = 0; i < 52; i ++){
-        srand (time(0) + i);
 
         int randNum = rand() % 52;
         int randNum2 = rand() % 52;

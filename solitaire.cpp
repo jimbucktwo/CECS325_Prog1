@@ -12,14 +12,15 @@
 #include "deck.h"
 using namespace std;
 
+//isFibo function to test the fibo numbers
 bool isFibo(int num) {
-    if (num == 1 || num == 2 || num == 3 || num == 5 || num == 8 
+    if (num == 0 || num == 1 || num == 2 || num == 3 || num == 5 || num == 8 
     || num == 13 || num == 21 || num == 34 || num == 55 || num == 89
     || num == 144 || num == 233) return true;
     return false;
 }
 
-
+// main function
 int main() {
     int x;
     Deck playerDeck = Deck();
@@ -60,12 +61,15 @@ int main() {
         }
         else cout << "\nWinner in " << numPiles << " piles!";
     }
+    // tests until a game is won
     else if (x == 5) {
-        playerDeck.newDeck();
         int gamesPlayed = 0;
         while (true) {
+            playerDeck.newDeck();
+            playerDeck.shuffle();
             int cardSum = 0;
             int numPiles = 0;
+
             while (playerDeck.isEmpty() != true){
                 Card dealedCard = playerDeck.deal();
                 dealedCard.show();
@@ -77,13 +81,12 @@ int main() {
                 }
             
             }
-            playerDeck.newDeck();
-            playerDeck.shuffle();
+
             gamesPlayed++;
             if (isFibo(cardSum)) {
                 cout << "\nWinner in " << numPiles << " piles!" << "\n\nGames played: " << gamesPlayed;
                 break;
-            }
+            } else cout <<"\n Not this time\n";
 
         }
         }
@@ -91,11 +94,3 @@ int main() {
     }
 
 }
-
-/*to shuffle the deck, choose two random numbers in the array and swap
-do that a number of times until the deck is adequately shuffled
-*/
-
-//the random number generator will select the same number all the time
-//if left by itself, use srand to change the seed and time() to always
-//the seed
